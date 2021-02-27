@@ -14,3 +14,5 @@ See App.vue and Home.vue!
 
 1. Error handle for languages
 2. Reduce depth for i18n
+3. Add e2e test
+4. Add cucumber for cypress
