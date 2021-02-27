@@ -6,6 +6,10 @@ This project is designed for replacing original vue-i18n project.
 
 Import i18n data within page-scale.
 
+## EXAMPLES:
+
+See App.vue and Home.vue!
+
 ## TODOS:
 
 1. Error handle for languages
