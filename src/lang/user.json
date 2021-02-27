@@ -1,0 +1,6 @@
+{
+  "GREETING_USER": {
+    "kr": "안녕하세요! ${username}",
+    "en": "Hello! ${username}"
+  }
+}
