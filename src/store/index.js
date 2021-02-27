@@ -1,15 +1,19 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+
+const SET_LANGUAGE = "SET_LANGUAGE";
 
 export default new Vuex.Store({
   state: {
+    language: "kr",
   },
   mutations: {
+    [SET_LANGUAGE](state, newLang) {
+      state.language = newLang;
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});
