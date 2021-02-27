@@ -1,34 +1,12 @@
 # custom-vue-i18n
 
-## Project setup
-```
-npm install
-```
+This project is designed for replacing original vue-i18n project.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## PURPOSE:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Import i18n data within page-scale.
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## TODOS:
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Error handle for languages
+2. Lang settings with store data
