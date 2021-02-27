@@ -1,12 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <i18n>
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
+      <router-view />
+    </i18n>
   </div>
 </template>
+
+<script>
+import createI18nComponent from './i18n/createI18nComponent';
+import areanJsonFile from './lang/arena';
+import commonJsonFile from './lang/common';
+import greetingsJsonFile from './lang/greetings';
+import userJsonFile from './lang/user';
+
+export default {
+  components: {
+    i18n: createI18nComponent(
+      areanJsonFile,
+      commonJsonFile,
+      greetingsJsonFile,
+      userJsonFile
+    )
+  }
+};
+</script>
 
 <style>
 #app {
