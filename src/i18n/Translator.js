@@ -1,26 +1,26 @@
-import _reduce from 'lodash/reduce';
-import I18nErrors, { errorTypes } from './I18nErrors';
+import _reduce from "lodash/reduce";
+import I18nErrors, { errorTypes } from "./I18nErrors";
 
 export default class Translator {
   constructor(lang) {
     if (!lang) throw new I18nErrors(errorTypes.NO_LANG);
-    this.lang = lang;
-    this.internationals = {};
+    this._lang = lang;
+    this._internationals = {};
     return this;
   }
 
-  _parseLang(jsonFile) {
+  parseLang(jsonFile) {
     if (!jsonFile) throw new I18nErrors(errorTypes.NO_JSON);
-    this.internationals = Object.assign(
+    this._internationals = Object.assign(
       _reduce(
         jsonFile,
         (result, value, key) => {
-          if (/{*}/.test(value[this.lang])) {
-            result[key] = opts => {
-              let template = value[this.lang];
+          if (/{*}/.test(value[this._lang])) {
+            result[key] = (opts) => {
+              let template = value[this._lang];
               for (let key in opts) {
                 template = template.replace(
-                  new RegExp('\\$\\{' + key + '\\}', 'g'),
+                  new RegExp("\\$\\{" + key + "\\}", "g"),
                   opts[key]
                 );
               }
@@ -28,24 +28,24 @@ export default class Translator {
             };
             return result;
           }
-          result[key] = value[this.lang];
+          result[key] = value[this._lang];
           return result;
         },
         {}
       ),
-      this.internationals
+      this._internationals
     );
     return this;
   }
 
-  _getJsonFile(...args) {
-    args.forEach(file => {
-      this._parseLang(file);
+  getJsonFile(...args) {
+    args.forEach((file) => {
+      this.parseLang(file);
     });
     return this;
   }
 
-  _getInternationals() {
-    return this.internationals;
+  getInternationals() {
+    return this._internationals;
   }
 }

@@ -6,8 +6,8 @@ const i18nFactory = (...args) => {
   return Vue.component("i18n", {
     created() {
       this._i18n = new Translator(this.language)
-        ._getJsonFile(...args)
-        ._getInternationals();
+        .getJsonFile(...args)
+        .getInternationals();
     },
     provide() {
       const i18n = {};
